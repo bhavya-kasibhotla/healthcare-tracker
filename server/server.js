@@ -14,15 +14,7 @@ const app = express();
 connectDB();
  
 // FIX: Restrict CORS to only the client origin
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://healthcare-tracker-1.onrender.com"
-    ],
-    credentials: true,
-  })
-); 
+app.use(cors());
 app.use(express.json());
  
 app.get("/", (req, res) => {
