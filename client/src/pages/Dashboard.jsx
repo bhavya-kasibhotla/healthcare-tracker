@@ -32,9 +32,9 @@ function Dashboard() {
             const config = { headers: { authorization: token } };
 
             const [healthRes, medicineRes, profileRes] = await Promise.all([
-                API.get("/health/all", config),
-                API.get("/medicines/all", config),
-                API.get("/profile/get", config)
+                API.get("/api/health/all", config),
+                API.get("/api/medicines/all", config),
+                API.get("/api/profile/get", config)
             ]);
 
             setRecords(healthRes.data);
@@ -54,7 +54,7 @@ function Dashboard() {
         if (!window.confirm("Delete this record?")) return;
         try {
             const token = localStorage.getItem("token");
-            await API.delete(`/health/delete/${id}`, {
+            await API.delete(`/api/health/delete/${id}`, {
                 headers: { authorization: token }
             });
             toast.success("Record deleted");
@@ -84,7 +84,7 @@ function Dashboard() {
     const handleEditSave = async () => {
         try {
             const token = localStorage.getItem("token");
-            await API.put(`/health/update/${editRecord}`, editForm, {
+            await API.put(`/api/health/update/${editRecord}`, editForm, {
                 headers: { authorization: token }
             });
             toast.success("Record updated");

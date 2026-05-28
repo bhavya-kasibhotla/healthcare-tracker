@@ -24,7 +24,7 @@ function Medicines() {
         try {
             setLoading(true);
             const token = localStorage.getItem("token");
-            const res = await API.get("/medicines/all", {
+            const res = await API.get("/api/medicines/all", {
                 headers: { authorization: token }
             });
             setMedicines(res.data);
@@ -52,7 +52,7 @@ function Medicines() {
 
         try {
             const token = localStorage.getItem("token");
-            const res = await API.post("/medicines/add", formData, {
+            const res = await API.post("/api/medicines/add", formData, {
                 headers: { authorization: token }
             });
             toast.success(res.data.message);
@@ -68,7 +68,7 @@ function Medicines() {
     const handleToggleTaken = async (id) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await API.put(`/medicines/taken/${id}`, {}, {
+            const res = await API.put(`/api/medicines/taken/${id}`, {}, {
                 headers: { authorization: token }
             });
             toast.success(res.data.message);
@@ -84,7 +84,7 @@ function Medicines() {
         if (!window.confirm("Delete this medicine?")) return;
         try {
             const token = localStorage.getItem("token");
-            await API.delete(`/medicines/delete/${id}`, {
+            await API.delete(`/api/medicines/delete/${id}`, {
                 headers: { authorization: token }
             });
             toast.success("Medicine deleted");

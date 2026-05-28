@@ -103,7 +103,7 @@ function AddRecord() {
 
       const res = await API.post(
 
-        "/health/add",
+        "/api/health/add",
 
         formData,
 

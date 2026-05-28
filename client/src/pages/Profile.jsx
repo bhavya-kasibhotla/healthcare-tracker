@@ -50,7 +50,7 @@ function Profile() {
 
       const res = await API.get(
 
-        "/profile/get",
+        "/api/profile/get",
 
         {
           headers: {
@@ -157,7 +157,7 @@ function Profile() {
 
       const res = await API.post(
 
-        "/profile/save",
+        "/api/profile/save",
 
         formData,
 
