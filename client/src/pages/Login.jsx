@@ -77,11 +77,9 @@ function Login() {
       setLoading(true);
 
       const res = await API.post(
-
-        "/auth/login",
-
-        formData
-      );
+  "/api/auth/login",
+  formData
+);
 
       localStorage.setItem(
 

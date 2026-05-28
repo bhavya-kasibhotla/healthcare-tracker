@@ -34,7 +34,7 @@ function Register() {
 
         try {
             setLoading(true);
-            const res = await API.post("/auth/register", formData);
+            const res = await API.post("/api/auth/register", formData);
             toast.success(res.data.message);
             setLoading(false);
             navigate("/login");
